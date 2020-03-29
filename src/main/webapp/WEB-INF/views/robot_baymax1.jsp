@@ -4,16 +4,15 @@
 <html>
 
 <head>
-	<%@include file="/common/head.jsp" %>
-	
+	<%@include file="common/head.jsp" %>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
 </head>
 
 <body>
-	<p><img src="img/baymax.jpg" /></p>
+	<p><img src="resources/img/baymax.jpg" /></p>
 
-	<h4>Hello, I am Baymax, your personal healthcare companion. </h4>
+	<h4>Hello, I am Baymax No.1, your personal healthcare companion. </h4>
 	<a href="views/baymax.html">go to</a>
 
 </body>

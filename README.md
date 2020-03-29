@@ -1,6 +1,6 @@
 # springmvc-demo
 
-https://my.oschina.net/happyBKs?tab=newest&catalogId=436090
+本示例是happyBKs的[博文](https://my.oschina.net/happyBKs?tab=newest&catalogId=436090)的代码实现，感谢其分享。
 #### 1. [SpringMVC笔记系列（1）——用一个例子帮你入门](https://my.oschina.net/happyBKs/blog/411547)
 静态资源如jpg,html无法访问
 #### 2. [SpringMVC笔记系列（2）——@RequestMapping请求映射物理视图解析](https://my.oschina.net/happyBKs/blog/411861)
@@ -48,4 +48,14 @@ JSPs only permit GET POST or HEAD
 #### 14. [springMVC笔记系列(14)——模型数据处理篇 之 Map](https://my.oschina.net/happyBKs/blog/420754)
 #### 15. [springMVC笔记系列(15)——模型数据处理篇 之 @Session注解](https://my.oschina.net/happyBKs/blog/421103)
 #### 16. [springMVC笔记系列(16)——模型数据处理篇 之 @ModelAttribute注解](https://my.oschina.net/happyBKs/blog/422513)
+#### 17. [springMVC笔记系列(17 特别篇的开始)——springMVC要点回顾及idea开发环境搭建](https://my.oschina.net/happyBKs/blog/690926)
+#### 18. [springMVC笔记系列(18)——配置文件细节详解](https://my.oschina.net/happyBKs/blog/691502)
+mvc:annotation-driven必须有，否则RequestMapping不生效
+```xml
+    <!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
+    <mvc:annotation-driven />
 
+    <!-- 静态资源处理， css， js， imgs -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+```
+<%@include file="common/head.jsp" %>中使用相对路径
