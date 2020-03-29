@@ -1,0 +1,30 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Jetty debug",
+            "type": "shell",
+            "command": "mvn jetty:run",
+            "group": "build",
+            "isBackground": false,
+            "problemMatcher": [],
+            "options": {
+                "env": {
+                    "maven_opts": "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
+                }
+            }
+        },
+        {
+            "label": "Jetty run",
+            "type": "shell",
+            "command": "mvn jetty:run",
+            "group": "build",
+            "isBackground": false,
+            "problemMatcher": [],
+            "options": {
+            }
+        }        
+    ]
+}
