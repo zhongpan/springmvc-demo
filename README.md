@@ -61,8 +61,11 @@ JSPs only permit GET POST or HEAD
 ```
 #### 19. [springMVC笔记系列(19)——控制器实现详解（上）](https://my.oschina.net/happyBKs/blog/694088)
 [Please initialize the log4j system properly报错解决办法](https://blog.csdn.net/kangkangwanwan/article/details/52370324)
+
 [Java日志框架SLF4J和log4j以及logback的联系和区别](https://www.cnblogs.com/hanszhao/p/9754419.html)
+
 [log4j additivity解说](https://blog.csdn.net/hongweigg/article/details/14169477)
 #### 20. [springMVC笔记系列(20)——控制器实现详解（下）](https://my.oschina.net/happyBKs/blog/703563)
 [全面解析Spring中@ModelAttribute注解的用法](https://www.cnblogs.com/cobcmw/p/12092591.html)
+
 此例中没有@ModelAttribute也可以。
