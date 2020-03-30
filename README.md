@@ -1,8 +1,9 @@
 # springmvc-demo
 
-https://my.oschina.net/happyBKs?tab=newest&catalogId=436090
+此示例是happyBKs的[博文](https://my.oschina.net/happyBKs?tab=newest&catalogId=436090)实现代码，感谢其分享。
 #### 1. [SpringMVC笔记系列（1）——用一个例子帮你入门](https://my.oschina.net/happyBKs/blog/411547)
 静态资源如jpg,html无法访问
+[SpringMVC中css,js,图片等静态资源被拦截的解决办法](https://blog.csdn.net/shixin_li/article/details/80576753)
 #### 2. [SpringMVC笔记系列（2）——@RequestMapping请求映射物理视图解析](https://my.oschina.net/happyBKs/blog/411861)
 要设置base，否则资源路径不对
 ```
