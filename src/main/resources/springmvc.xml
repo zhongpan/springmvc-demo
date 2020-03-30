@@ -3,14 +3,21 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
-	<context:component-scan base-package="com.zp.demo.handlers"></context:component-scan>
+	<!-- 启用Spring基于annotation的DI, 使用户可以在Spring MVC中使用Spring的强大功能。 激活 @Required
+        @Autowired,JSR 250's @PostConstruct, @PreDestroy and @Resource 等标注 -->
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.zp.demo.handlers">
+		<context:include-filter type="annotation"  expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
 
 
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
 
 	<!-- 配置视图解析器：如何把handler方法 的返回值 解析为 实际的物理视图-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>

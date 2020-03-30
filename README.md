@@ -1,6 +1,6 @@
 # springmvc-demo
 
-本示例是happyBKs的[博文](https://my.oschina.net/happyBKs?tab=newest&catalogId=436090)的代码实现，感谢其分享。
+https://my.oschina.net/happyBKs?tab=newest&catalogId=436090
 #### 1. [SpringMVC笔记系列（1）——用一个例子帮你入门](https://my.oschina.net/happyBKs/blog/411547)
 静态资源如jpg,html无法访问
 #### 2. [SpringMVC笔记系列（2）——@RequestMapping请求映射物理视图解析](https://my.oschina.net/happyBKs/blog/411861)
@@ -20,7 +20,7 @@
 #### 5. [springMVC笔记系列(5)——@RequestMapping请求value的通配符详解](https://my.oschina.net/happyBKs/blog/412714)
 第四种情况，以前版本会随机选择，现在版本会直接异常。
 ```
-HTTP ERROR 500 javax.servlet.ServletException: org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.IllegalStateException: Ambiguous handler methods mapped for '/springmvc-study/c3/rq8_bm/bbb/mmm': {public java.lang.String com.study.zp.handlers.RMHandler.handle13_bm(), public java.lang.String com.study.zp.handlers.RMHandler.handle12_bm()}
+HTTP ERROR 500 javax.servlet.ServletException: org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.IllegalStateException: Ambiguous handler methods mapped for '/springmvc-demo/c3/rq8_bm/bbb/mmm': {public java.lang.String com.zp.demo.handlers.RMHandler.handle13_bm(), public java.lang.String com.zp.demo.handlers.RMHandler.handle12_bm()}
 ```
 #### 6. [springMVC笔记系列(6)——映射请求URL中的占位符到控制器方法参数](https://my.oschina.net/happyBKs/blog/412788)
 #### 7. [springMVC笔记系列(7)——HiddenHttpMethodFilter过滤器](https://my.oschina.net/happyBKs/blog/416994)
@@ -50,7 +50,7 @@ JSPs only permit GET POST or HEAD
 #### 16. [springMVC笔记系列(16)——模型数据处理篇 之 @ModelAttribute注解](https://my.oschina.net/happyBKs/blog/422513)
 #### 17. [springMVC笔记系列(17 特别篇的开始)——springMVC要点回顾及idea开发环境搭建](https://my.oschina.net/happyBKs/blog/690926)
 #### 18. [springMVC笔记系列(18)——配置文件细节详解](https://my.oschina.net/happyBKs/blog/691502)
-mvc:annotation-driven必须有，否则RequestMapping不生效
+使用mvc:resources时，必须存在mvc:annotation-driven，否则导致RequestMapping不生效。
 ```xml
     <!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
     <mvc:annotation-driven />
@@ -58,4 +58,10 @@ mvc:annotation-driven必须有，否则RequestMapping不生效
     <!-- 静态资源处理， css， js， imgs -->
     <mvc:resources mapping="/resources/**" location="/resources/" />
 ```
-<%@include file="common/head.jsp" %>中使用相对路径
+#### 19. [springMVC笔记系列(19)——控制器实现详解（上）](https://my.oschina.net/happyBKs/blog/694088)
+[Please initialize the log4j system properly报错解决办法](https://blog.csdn.net/kangkangwanwan/article/details/52370324)
+[Java日志框架SLF4J和log4j以及logback的联系和区别](https://www.cnblogs.com/hanszhao/p/9754419.html)
+[log4j additivity解说](https://blog.csdn.net/hongweigg/article/details/14169477)
+#### 20. [springMVC笔记系列(20)——控制器实现详解（下）](https://my.oschina.net/happyBKs/blog/703563)
+[全面解析Spring中@ModelAttribute注解的用法](https://www.cnblogs.com/cobcmw/p/12092591.html)
+此例中没有@ModelAttribute也可以。
