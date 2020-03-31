@@ -1,23 +1,30 @@
 package com.zp.demo.handlers;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.zp.demo.model.Course;
 import com.zp.demo.service.CourseService;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Created by happyBKs on 2016/6/15.
@@ -93,4 +100,50 @@ public class CourseController {
       return "redirect:view2/"+course.getCourseId();
   }
 
+  @RequestMapping(value="/upload", method=RequestMethod.GET)
+  public String showUploadPage(){
+      return "course_admin/file";
+  }
+
+  @RequestMapping(value="/doUpload", method=RequestMethod.POST)
+  public String doUploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+
+      if(!file.isEmpty()){
+          log.info("Process file(getOriginalFilename): {}", file.getOriginalFilename());
+          log.info("Process file(getName): {}", file.getName());
+          log.info("Process file(getContentType): {}", file.getContentType());
+          log.info("Process file(getSize): {}", file.getSize());
+          FileUtils.copyInputStreamToFile(file.getInputStream(), new File("d:\\tmp\\", System.currentTimeMillis()+ file.getOriginalFilename()));
+      }
+
+      return "success";
+  }  
+
+  @ExceptionHandler(Exception.class)
+  public void handleException(Exception ex,HttpServletRequest request,HttpServletResponse response){
+      log.info("step into handleException............................");
+      StringBuffer sb = new StringBuffer();
+      sb.append("<script language='javascript'>history.go(-1);alert('");
+      if (ex instanceof org.springframework.web.multipart.MaxUploadSizeExceededException){
+          sb.append("文件大小不应大于"+((org.springframework.web.multipart.MaxUploadSizeExceededException)ex).getMaxUploadSize()/1000+"kb");
+      } else{
+          sb.append("上传异常！");
+      }
+      sb.append("！');</script>");
+      try {
+          System.out.println(sb.toString());
+          response.setContentType("text/html; charset=utf-8");
+          response.getWriter().println(sb.toString());
+          response.getWriter().flush();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      return;
+  }  
+
+  @RequestMapping(value="/{courseId}",method=RequestMethod.GET)
+  @ResponseBody
+  public Course getCourseInJson(@PathVariable Integer courseId){
+      return  courseService.getCoursebyId(courseId);
+  }  
 }

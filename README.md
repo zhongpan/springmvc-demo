@@ -69,3 +69,19 @@ JSPs only permit GET POST or HEAD
 [全面解析Spring中@ModelAttribute注解的用法](https://www.cnblogs.com/cobcmw/p/12092591.html)
 
 此例中没有@ModelAttribute也可以。
+#### 21. [springMVC笔记系列(21)——springMVC自带的上传文件功能实现](https://my.oschina.net/happyBKs/blog/706547)
+#### 22. [springMVC笔记系列(22)——Json各类操作在springMVC中的实现](https://my.oschina.net/happyBKs/blog/707994)
+启动时报如下错误，因为jackson版本和spring版本不兼容，升级jackson版本即可。
+```
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/exc/InvalidDefinitionException
+```
+[参考]([java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/exc/InvalidDefinitionException](https://blog.csdn.net/an_xiaowu/article/details/84134035))
+#### 23. [springMVC笔记系列(23)——拦截器及其在乱码问题和登录问题的应用实现](https://my.oschina.net/happyBKs/blog/710833)
+filter的执行顺序跟filter-mapping的位置一致，之前的HiddenHttpMethodFilter要放到后面。
+[自定义拦截器和Filter的执行顺序](https://www.cnblogs.com/java-ssl-xy/p/7426524.html)
+
+
+
+
+
+

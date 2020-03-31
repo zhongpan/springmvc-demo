@@ -10,10 +10,24 @@
 		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
 	</filter>
 
+
+
+  <filter>
+    <filter-name>viewSpace-filter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>GBK</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>viewSpace-filter</filter-name>
+    <url-pattern>/test2/*</url-pattern>
+  </filter-mapping> 
 	<filter-mapping>
 		<filter-name>HiddenHttpMethodFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping>   
   
   <!-- Spring应用上下文， 理解层次化的ApplicationContext -->
   <context-param>
@@ -48,4 +62,22 @@
     <servlet-name>springDispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>viewSpace-dispatcher</servlet-name>
+    <servlet-class> org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- DispatcherServlet对应的上下文配置， 默认为/WEB-INF/$servlet-name$-servlet.xml
+     -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/configs/spring/viewSpace-dispatcher-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewSpace-dispatcher</servlet-name>
+    <!-- mvc-dispatcher拦截所有的请求-->
+    <url-pattern>/test2/*</url-pattern>
+  </servlet-mapping>  
 </web-app>
