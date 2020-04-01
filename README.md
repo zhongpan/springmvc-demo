@@ -75,9 +75,10 @@ JSPs only permit GET POST or HEAD
 ```
 java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/exc/InvalidDefinitionException
 ```
-[参考]([java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/exc/InvalidDefinitionException](https://blog.csdn.net/an_xiaowu/article/details/84134035))
+[参考](https://blog.csdn.net/an_xiaowu/article/details/84134035)
 #### 23. [springMVC笔记系列(23)——拦截器及其在乱码问题和登录问题的应用实现](https://my.oschina.net/happyBKs/blog/710833)
 filter的执行顺序跟filter-mapping的位置一致，之前的HiddenHttpMethodFilter要放到后面。
+
 [自定义拦截器和Filter的执行顺序](https://www.cnblogs.com/java-ssl-xy/p/7426524.html)
 
 
